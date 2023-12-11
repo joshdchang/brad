@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Layout";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+	const frames = await getCollection("frame");
+	return frames.map((frame) => ({
+		params: { slug: frame.slug },
+		props: { frame },
+	}));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { frame } = Astro.props;
+const { Content } = await frame.render();
+
+const { title, options } = frame.data;
+---
+
+<Layout title={title}>
+	<div class="flex flex-col gap-10">
+		<main class="prose prose-invert">
+			<h1>{title}</h1>
+			<Content />
+		</main>
+		{
+			options && (
+				<div class="grid gap-4">
+					{options.map(({ label, link }) => (
+						<a
+							class="rounded border border-slate-600 bg-slate-700 px-4 py-2 text-center font-medium text-white shadow-sm shadow-black/20 transition-colors hover:bg-slate-600 active:bg-slate-500"
+							href={link && `/${link.collection}/${link.slug}`}
+						>
+							{label}
+						</a>
+					))}
+				</div>
+			)
+		}
+	</div>
+</Layout>
