@@ -1,5 +1,5 @@
 import { defineConfig } from "tinacms";
-import { pathToSlug } from "../src/utils/content";
+// import { pathToSlug } from "../src/utils/content";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
