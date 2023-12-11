@@ -2,4 +2,4 @@
 title: Giraffe
 ---
 
-Giraffe's have long necks.
+Giraffes have long necks.
