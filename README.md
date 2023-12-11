@@ -1,8 +1,10 @@
-# Install dependencies
+# 183 Final Project
+
+## Install dependencies
 
 - Run `pnpm install`
 
-# Run the development server
+## Run the development server
 
 - Run `pnpm dev`
 - To see preview, open [http://localhost:4321](http://localhost:4321)
