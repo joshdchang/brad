@@ -1,0 +1,15 @@
+---
+interface Props {
+	frame: string;
+}
+const { frame } = Astro.props;
+---
+
+<p class="not-prose block w-full pt-3 sm:pt-4">
+	<a
+		class="w-full block rounded border border-slate-600 bg-slate-700 px-3 py-1.5 text-center text-sm font-medium text-white shadow-sm shadow-black/20 transition-colors hover:bg-slate-600 active:bg-slate-500 sm:px-4 sm:py-2 sm:text-base"
+		href={`/frame/${frame}`}
+	>
+		<slot />
+	</a>
+</p>

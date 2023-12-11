@@ -19,9 +19,9 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} | 183 Adventure</title>
   </head>
-  <body class="font-mono">
-    <div class="flex items-center justify-center absolute inset-0 p-5 bg-slate-900">
-      <div class="max-w-xl w-full bg-slate-800 border border-slate-700 shadow-lg shadow-black/20 rounded-xl p-12">
+  <body class="font-mono bg-slate-900">
+    <div class="flex items-center justify-center min-h-screen px-5 py-8 sm:px-10 sm:py-20">
+      <div class="max-w-xl w-full bg-slate-800 border border-slate-700 shadow-lg shadow-black/20 rounded-xl p-7 sm:p-12">
         <slot />
       </div>
     </div>
