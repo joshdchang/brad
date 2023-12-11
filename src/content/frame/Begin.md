@@ -1,6 +1,8 @@
 ---
 title: Begin
 options:
+  - label: Mystery animal
+    frame: src/content/frame/Fish.md
   - label: Owl
     frame: src/content/frame/Owl.md
   - label: Giraffe
