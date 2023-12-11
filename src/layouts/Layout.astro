@@ -20,8 +20,8 @@ const { title } = Astro.props;
     <title>{title} | 183 Adventure</title>
   </head>
   <body class="font-mono bg-slate-900">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="px-5 py-8 sm:px-10 sm:py-20">
+    <div class="absolute inset-0 flex items-center">
+      <div class="px-5 py-8 sm:px-10 sm:py-20 w-full flex justify-center">
         <div class="max-w-xl w-full bg-slate-800 border border-slate-700 shadow-lg shadow-black/20 rounded-xl p-7 sm:p-12">
           <slot />
         </div>
