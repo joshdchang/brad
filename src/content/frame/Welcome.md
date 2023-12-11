@@ -7,4 +7,4 @@ options:
 
 This is a test.
 
-By Josh Chang, Alan Xie, and Tavian Jones
+*By Josh Chang, Alan Xie, and Tavian Jones*
