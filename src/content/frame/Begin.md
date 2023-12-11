@@ -9,6 +9,6 @@ options:
     frame: src/content/frame/Mouse.md
 ---
 
-This is the first frame of the story.
+This is the first frame of the story..
 
 What is your favorite animal?
