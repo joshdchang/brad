@@ -1,6 +1,8 @@
 ---
 title: Begin
 options:
+  - label: Owl
+    frame: src/content/frame/Owl.md
   - label: Giraffe
     frame: src/content/frame/Giraffe.md
   - label: Elephant
