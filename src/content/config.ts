@@ -4,6 +4,10 @@ const frame = defineCollection({
   type: "content", 
   schema: () => z.object({
     title: z.string(),
+    options: z.array(z.object({
+      label: z.string(),
+      frame: z.string().optional(),
+    })).optional(),
   }),
 });
 

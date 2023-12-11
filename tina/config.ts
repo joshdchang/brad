@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import { pathToSlug } from "../src/utils/content";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -29,9 +30,9 @@ export default defineConfig({
 	schema: {
 		collections: [
 			{
-				name: "post",
-				label: "Posts",
-				path: "src/content/posts",
+				name: "frame",
+				label: "Frames",
+				path: "src/content/frame",
 				fields: [
 					{
 						type: "string",
@@ -47,9 +48,29 @@ export default defineConfig({
 						isBody: true,
 					},
 					{
-						label: "Tags",
-						name: "tags",
-						type: "string",
+						type: "object",
+						name: "options",
+						label: "Options",
+						// @ts-expect-error
+						itemProps: (item) => {
+							// Field values are accessed by item?.<Field name>
+							return { label: item.label };
+						},
+						fields: [
+							{
+								type: "string",
+								name: "label",
+								label: "Label",
+								isTitle: true,
+								required: true,
+							},
+							{
+								type: "reference",
+								name: "frame",
+								label: "Frame",
+								collections: ["frame"],
+							},
+						],
 						list: true,
 					},
 				],
