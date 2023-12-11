@@ -2,10 +2,10 @@
   "name": "brad",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro check && astro build",
+    "preview": "tinacms build && astro preview",
     "astro": "astro"
   },
   "dependencies": {
