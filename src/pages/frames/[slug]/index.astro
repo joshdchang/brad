@@ -1,39 +1,37 @@
 ---
 export const prerender = true;
 import Layout from "@/layouts/Layout";
+import { reader } from "@/utils";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import { getCollection } from "astro:content";
+import { DocumentRenderer } from '@keystatic/core/renderer';
 
 export const getStaticPaths = (async () => {
-	const frames = await getCollection("frame");
-	return frames.map((frame) => ({
-		params: { slug: frame.slug },
-		props: { frame },
+	const frames = await reader.collections.frames.all();
+	return frames.map(({ slug, entry }) => ({
+		props: { entry },
+		params: { slug },
 	}));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { frame } = Astro.props;
-const { Content } = await frame.render();
-
-const { options } = frame.data;
-
-import { pathToSlug } from "../../../utils/content";
+const { entry } = Astro.props;
+const { content, options } = entry;
+const doc = await content();
 ---
 
 <Layout>
-	<div class="flex flex-col gap-6 sm:gap-10">
+	<div class="flex flex-col gap-4 sm:gap-10">
 		<main class="prose prose-sm prose-invert sm:prose-base prose-h1:text-2xl sm:prose-h1:text-3xl">
-			<Content />
+			<DocumentRenderer document={doc} />
 		</main>
 		{
-			options && (
+			options.length > 0 && (
 				<div class="flex flex-col gap-3 sm:gap-4">
 					{options.map(({ frame, label }) => (
 						<a
 							class="block w-full rounded border border-slate-600 bg-slate-700 px-3 py-1.5 text-center text-sm font-medium text-white shadow-sm shadow-black/20 transition-colors hover:bg-slate-600 active:bg-slate-500 sm:px-4 sm:py-2 sm:text-base"
-							href={`/frame/${pathToSlug(frame)?.toLowerCase()}`}
+							href={`/frames/${frame}`}
 						>
 							{label}
 						</a>

@@ -1,20 +1,45 @@
 {
-	"extends": "astro/tsconfigs/strictest",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"lib": ["ES2021", "DOM"],
-		"paths": {
-			"@/assets/*": ["src/assets/*"],
-			"@/components/*": ["src/components/*.astro"],
-			"@/layouts/*": ["src/layouts/*.astro"],
-			"@/utils": ["src/utils/index.ts"],
-			"@/stores/*": ["src/stores/*"],
-			"@/types/*": ["src/types/*"],
-			"@/site-config": [
-				"src/site.config.ts"
-			]
-		},
-	},
-	"include": ["src", "*.ts"],
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "baseUrl": "/Users/josh/Desktop/final-project-CPSC183",
+    "lib": [
+      "ES2021",
+      "DOM"
+    ],
+    "paths": {
+      "@/assets/*": [
+        "src/assets/*"
+      ],
+      "@/components/*": [
+        "src/components/*.astro"
+      ],
+      "@/layouts/*": [
+        "src/layouts/*.astro"
+      ],
+      "@/utils": [
+        "src/utils/index.ts"
+      ],
+      "@/stores/*": [
+        "src/stores/*"
+      ],
+      "@/types/*": [
+        "src/types/*"
+      ],
+      "@/site-config": [
+        "src/site.config.ts"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "include": [
+    "src",
+    "*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    ".vscode",
+    "dist"
+  ]
 }

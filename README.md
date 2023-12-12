@@ -8,4 +8,4 @@
 
 - Run `pnpm dev`
 - To preview, open [http://localhost:4321](http://localhost:4321)
-- To edit, open [http://localhost:4321/admin/index.html](http://localhost:4321/admin/index.html)
+- To edit, open [http://localhost:4321/keystatic](http://localhost:4321/keystatic)
