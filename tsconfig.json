@@ -27,6 +27,9 @@
       ],
       "@/site-config": [
         "src/site.config.ts"
+      ],
+      "@/keystatic-config": [
+        "keystatic.config.ts"
       ]
     },
     "jsx": "react-jsx",
