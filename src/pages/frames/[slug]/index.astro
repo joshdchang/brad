@@ -5,7 +5,7 @@ import keystaticConfig from "@/keystatic-config";
 export const reader = createReader(process.cwd(), keystaticConfig);
 
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import { DocumentRenderer } from '@keystatic/core/renderer';
+import { DocumentRenderer } from "@keystatic/core/renderer";
 
 export const getStaticPaths = (async () => {
 	const frames = await reader.collections.frames.all();
@@ -21,44 +21,49 @@ const { entry } = Astro.props;
 const { content, options } = entry;
 const doc = await content();
 ---
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Experience the joys and perils of law, tech, and culture with this CPSC183-themed text adventure game."
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>183 Adventure</title>
-  </head>
-  <body class="font-mono bg-slate-900">
-    <div class="absolute inset-0 flex items-center">
-      <div class="px-5 py-8 sm:px-10 sm:py-20 w-full flex justify-center">
-        <div class="max-w-xl w-full bg-slate-800 border border-slate-700 shadow-lg shadow-black/20 rounded-xl p-7 sm:p-12">
-	<div class="flex flex-col gap-4 sm:gap-10">
-		<main class="prose prose-sm prose-invert sm:prose-base prose-h1:text-2xl sm:prose-h1:text-3xl">
-			<DocumentRenderer document={doc} />
-		</main>
-		{
-			options.length > 0 && (
-				<div class="flex flex-col gap-3 sm:gap-4">
-					{options.map(({ frame, label }) => (
-						<a
-							class="block w-full rounded border border-slate-600 bg-slate-700 px-3 py-1.5 text-center text-sm font-medium text-white shadow-sm shadow-black/20 transition-colors hover:bg-slate-600 active:bg-slate-500 sm:px-4 sm:py-2 sm:text-base"
-							href={`/frames/${frame}`}
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Experience the joys and perils of law, tech, and culture with this CPSC183-themed text adventure game."
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>183 Adventure</title>
+	</head>
+	<body class="bg-slate-900 font-mono">
+		<div class="absolute inset-0 flex items-center">
+			<div class="flex w-full justify-center px-5 py-8 sm:px-10 sm:py-20">
+				<div
+					class="w-full max-w-xl rounded-xl border border-slate-700 bg-slate-800 p-7 shadow-lg shadow-black/20 sm:p-12"
+				>
+					<div class="flex flex-col gap-4 sm:gap-10">
+						<main
+							class="prose prose-sm prose-invert sm:prose-base prose-h1:text-2xl sm:prose-h1:text-3xl"
 						>
-							{label}
-						</a>
-					))}
+							<DocumentRenderer document={doc} />
+						</main>
+						{
+							options.length > 0 && (
+								<div class="flex flex-col gap-3 sm:gap-4">
+									{options.map(({ frame, label }) => (
+										<a
+											class="block w-full rounded border border-slate-600 bg-slate-700 px-3 py-1.5 text-center text-sm font-medium text-white shadow-sm shadow-black/20 transition-colors hover:bg-slate-600 active:bg-slate-500 sm:px-4 sm:py-2 sm:text-base"
+											href={`/frames/${frame}`}
+										>
+											{label}
+										</a>
+									))}
+								</div>
+							)
+						}
+					</div>
 				</div>
-			)
-		}
-	</div>
-        </div>
-      </div>
-    </div>
-  </body>
+			</div>
+		</div>
+	</body>
 </html>
