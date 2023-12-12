@@ -9,7 +9,7 @@
 - Run `sudo npm i -g pnpm`
 - Enter your password
 
-### Don't have Node.js?
+### Don't have NPM/Node.js?
 
 - Download [Node.js](https://nodejs.org/)
 - Run the installer
