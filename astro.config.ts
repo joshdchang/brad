@@ -10,8 +10,5 @@ export default defineConfig({
 	integrations: [tailwind(), mdx()],
 	adapter: vercel({
 		edgeMiddleware: true,
-		webAnalytics: {
-			enabled: true,
-		},
 	}),
 });

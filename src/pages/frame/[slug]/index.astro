@@ -17,15 +17,14 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { frame } = Astro.props;
 const { Content } = await frame.render();
 
-const { title, options } = frame.data;
+const { options } = frame.data;
 
 import { pathToSlug } from "../../../utils/content";
 ---
 
-<Layout title={title}>
+<Layout>
 	<div class="flex flex-col gap-6 sm:gap-10">
 		<main class="prose prose-sm prose-invert sm:prose-base prose-h1:text-2xl sm:prose-h1:text-3xl">
-			<h1>{title}</h1>
 			<Content />
 		</main>
 		{
