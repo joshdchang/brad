@@ -12,7 +12,7 @@ export default config({
 			path: "src/content/frames/*",
 			format: { contentField: "content" },
 			schema: {
-				title: fields.slug({ name: { label: "Title" } }),
+				title: fields.slug({ name: { label: "Title" }, slug: { description: "Do not change this slug once you have referenced it from another frame. It will break the connection." } }),
 				content: fields.document({
 					label: "Content",
 					formatting: true,
@@ -26,6 +26,7 @@ export default config({
 						frame: fields.relationship({
 							label: "Frame",
 							collection: "frames",
+							description: "If you leave this blank, the option will link to the welcome page."
 						}),
 					}),
 					{
